@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: auto auto auto;
+           
+        }
+        #container>div{
+            border: 2px solid orange;
+            margin: 7px;
+            padding: 7px;
+            text-align: center;
+            background-color: aqua;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        div:hover{
+            transform: translateY(-1px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">data</h1>
+    <div id="container">
+
+    </div>
+    <script>
+        let data=JSON.parse(localStorage.getItem("key"))
+        // console.log(data);
+        // document.write(data.username,data.password)
+        let newdata=data.map((val,i,ar)=>{
+            let parent=document.getElementById("container")
+            child=document.createElement("div")
+            childa=document.createElement("div")
+            childb=document.createElement("div")
+            parent.append(child)
+            child.append(childa,childb)
+            console.log(parent)
+            childa.innerHTML=val.username
+            childb.innerHTML=val.password
+            console.log(val.username)
+            console.log(val.password)
+
+            
+        })
+         
+        
+        
+    </script>
+</body>
+</html>
